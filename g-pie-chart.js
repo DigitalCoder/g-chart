@@ -133,8 +133,7 @@ PieChart.prototype = {
 	getAngleOfCoordinate: function (x_position, y_position) {
 		var _x = this.centerX - x_position;
 		var _y = this.centerY - y_position;
-		return Math.atan2(_y, _x) + 3;
-		// Check why it needs + 3 to work.
+		return Math.atan2(_y, _x) + Math.PI;
 	},
 	
 	showTooltip: function (slice, x, y) {
