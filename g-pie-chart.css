@@ -1,7 +1,7 @@
 .tooltip-pie-chart {
 	position: fixed;
 	z-index: 1000;
-	transform: translate(-50%, -100%);
+	transform: translate(-50%, -120%);
 	padding: 10px;
 	background-color: white;
 	border-radius: 5px;
