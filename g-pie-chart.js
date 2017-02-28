@@ -155,6 +155,7 @@ PieChart.prototype = {
 	},
 	removeTooltip: function () {
 		var tooltip = document.getElementById('tooltip');
-		this.container.parentNode.removeChild(tooltip);
+		if(tooltip)
+			this.container.parentNode.removeChild(tooltip);
 	}
 };
