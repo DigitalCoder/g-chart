@@ -189,7 +189,7 @@ LineChart.prototype = {
 		var point = this.getPointSelected(event.layerX, event.layerY);
 		
 		if(point != null) {
-			this.showTooltip(this.tooltip[point], this.coordinates[point]);
+			this.showTooltip(this.tooltip[point], { x: event.clientX, y: event.clientY});
 		} else {
 			this.removeTooltip();
 		}
@@ -198,7 +198,7 @@ LineChart.prototype = {
 		var point = this.getPointSelected(event.layerX, event.layerY);
 		
 		if(point != null) {
-			this.showTooltip(this.tooltip[point], this.coordinates[point]);
+			this.showTooltip(this.tooltip[point], { x: event.clientX, y: event.clientY});
 		} else {
 			this.removeTooltip();
 		}
