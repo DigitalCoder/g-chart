@@ -99,7 +99,7 @@ PieChart.prototype = {
 	clickEvent: function (event) {
 		if(this.isInsidePie(event.layerX, event.layerY)) {
 			var slice_clicked = this.getSlice(event.layerX, event.layerY);
-			this.showTooltip(slice_clicked, event.layerX, event.layerY);
+			this.showTooltip(slice_clicked, { x: event.clientX, y: event.clientY});
 		} else {
 			this.removeTooltip();
 		}
@@ -107,7 +107,7 @@ PieChart.prototype = {
 	hoverEvent: function (event) {
 		if(this.isInsidePie(event.layerX, event.layerY)) {
 			var slice_hovered = this.getSlice(event.layerX, event.layerY);
-			this.showTooltip(slice_hovered, event.layerX, event.layerY);
+			this.showTooltip(slice_hovered, { x: event.clientX, y: event.clientY});
 		} else {
 			this.removeTooltip();
 		}
@@ -136,18 +136,18 @@ PieChart.prototype = {
 		return Math.atan2(_y, _x) + Math.PI;
 	},
 	
-	showTooltip: function (slice, x, y) {
+	showTooltip: function (slice, coordinate) {
 		var tooltip = document.getElementById('tooltip');
 		if(tooltip) {
-			tooltip.style.top = y + 'px';
-			tooltip.style.left = x + 'px';
+			tooltip.style.top = coordinate.y + 'px';
+			tooltip.style.left = coordinate.x + 'px';
 			tooltip.innerHTML = slice.tooltip;
 		} else {
 			tooltip = document.createElement('div');
 			tooltip.setAttribute('id', 'tooltip');
 			tooltip.classList.add('tooltip-chart');
-			tooltip.style.top = y + 'px';
-			tooltip.style.left = x + 'px';
+			tooltip.style.top = coordinate.y + 'px';
+			tooltip.style.left = coordinate.x + 'px';
 			tooltip.innerHTML = slice.tooltip;
 			this.container.parentNode.appendChild(tooltip);
 		}
