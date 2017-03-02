@@ -97,17 +97,17 @@ PieChart.prototype = {
 	},
 	
 	clickEvent: function (event) {
-		if(this.isInsidePie(event.clientX, event.clientY)) {
-			var slice_clicked = this.getSlice(event.clientX, event.clientY);
-			this.showTooltip(slice_clicked, event.clientX, event.clientY);
+		if(this.isInsidePie(event.layerX, event.layerY)) {
+			var slice_clicked = this.getSlice(event.layerX, event.layerY);
+			this.showTooltip(slice_clicked, event.layerX, event.layerY);
 		} else {
 			this.removeTooltip();
 		}
 	},
 	hoverEvent: function (event) {
-		if(this.isInsidePie(event.clientX, event.clientY)) {
-			var slice_hovered = this.getSlice(event.clientX, event.clientY);
-			this.showTooltip(slice_hovered, event.clientX, event.clientY);
+		if(this.isInsidePie(event.layerX, event.layerY)) {
+			var slice_hovered = this.getSlice(event.layerX, event.layerY);
+			this.showTooltip(slice_hovered, event.layerX, event.layerY);
 		} else {
 			this.removeTooltip();
 		}
