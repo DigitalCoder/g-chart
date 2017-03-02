@@ -145,7 +145,7 @@ PieChart.prototype = {
 		} else {
 			tooltip = document.createElement('div');
 			tooltip.setAttribute('id', 'tooltip');
-			tooltip.classList.add('tooltip-pie-chart');
+			tooltip.classList.add('tooltip-chart');
 			tooltip.style.top = y + 'px';
 			tooltip.style.left = x + 'px';
 			tooltip.innerHTML = slice.tooltip;
